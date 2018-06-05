@@ -26,7 +26,7 @@ class BaseGameViewController: UIViewController {
         self.configureActionsForGameplay()
         self.startComboTimer()
         self.updateTopLabel()
-        self.bottomLabel.text = "0 pts"
+        self.updatePointsLabel()
     }
     
     // MARK:- Setup
@@ -47,12 +47,20 @@ class BaseGameViewController: UIViewController {
     }
     
     /**
-     Called when the controller loads and anytime the pause menu is
-     dismissed.  Allows subclasses to specify the top label text.
+     Called when the controller loads and anytime the pause menu is dismissed.
+     Allows subclasses to specify the top label text.
      */
     func updateTopLabel() {
         self.topLabel.text = "[TOP LABEL]"
         // fatalError("Subclasses must override ``BaseGameViewController.updateTopLabel``")
+    }
+    
+    /**
+     Update the points label
+     */
+    func updatePointsLabel() {
+        let formattedPoints = NumberFormatter.localizedString(from: self.points as NSNumber, number: .decimal)
+        self.bottomLabel.text = "\(formattedPoints) pts"
     }
     
     /**
@@ -75,7 +83,7 @@ class BaseGameViewController: UIViewController {
      */
     func addPoints(_ points: Int) {
         self.points += points
-        self.bottomLabel.text = "\(self.points) pts"
+        self.updatePointsLabel()
     }
     
     /**

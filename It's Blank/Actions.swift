@@ -117,6 +117,7 @@ enum Actions {
         TapAction(title: "Four-Finger Triple Tap", value: 12_000, numberOfTouchesRequired: 4, numberOfTapsRequired: 3),
         TapAction(title: "Four-Finger Quadruple Tap", value: 16_000, numberOfTouchesRequired: 4, numberOfTapsRequired: 4),
     ]
+    
     /**
      Actions that use a UITapGestureRecognizer
      */
@@ -138,6 +139,7 @@ enum Actions {
         SwipeAction(title: "Four-Finger Swipe Left", value: 1_000, numberOfTouchesRequired: 4, direction: .left),
         SwipeAction(title: "Four-Finger Swipe Right", value: 1_000, numberOfTouchesRequired: 4, direction: .right),
     ]
+    
     /**
      All Actions
      */

@@ -1,6 +1,6 @@
 //
 //  Actions.swift
-//  It's Blank
+//  TappySwipey
 //
 //  Created by Jordan Gardner on 6/3/18.
 //  Copyright © 2018 jordanthomasg. All rights reserved.

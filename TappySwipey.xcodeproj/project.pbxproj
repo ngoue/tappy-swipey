@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		17E2C7A920C4B54A00D5BCE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E2C7A820C4B54A00D5BCE7 /* AppDelegate.swift */; };
-		17E2C7AB20C4B54A00D5BCE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E2C7AA20C4B54A00D5BCE7 /* ViewController.swift */; };
 		17E2C7AE20C4B54A00D5BCE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E2C7AC20C4B54A00D5BCE7 /* Main.storyboard */; };
 		17E2C7B120C4B54A00D5BCE7 /* TappySwipey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17E2C7AF20C4B54A00D5BCE7 /* TappySwipey.xcdatamodeld */; };
 		17E2C7B320C4B54D00D5BCE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E2C7B220C4B54D00D5BCE7 /* Assets.xcassets */; };
@@ -39,7 +38,6 @@
 /* Begin PBXFileReference section */
 		17E2C7A520C4B54A00D5BCE7 /* TappySwipey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TappySwipey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E2C7A820C4B54A00D5BCE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		17E2C7AA20C4B54A00D5BCE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		17E2C7AD20C4B54A00D5BCE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		17E2C7B020C4B54A00D5BCE7 /* TappySwipey.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TappySwipey.xcdatamodel; sourceTree = "<group>"; };
 		17E2C7B220C4B54D00D5BCE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +78,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17DBDFD320C88C5300058D70 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				17E2C7D920C4C05F00D5BCE7 /* BaseGameViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		17DBDFD420C88C7800058D70 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				17E2C7B420C4B54D00D5BCE7 /* LaunchScreen.storyboard */,
+				17E2C7AC20C4B54A00D5BCE7 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		17E2C79C20C4B54A00D5BCE7 = {
 			isa = PBXGroup;
 			children = (
@@ -105,14 +120,12 @@
 			isa = PBXGroup;
 			children = (
 				17E2C7A820C4B54A00D5BCE7 /* AppDelegate.swift */,
-				17E2C7AA20C4B54A00D5BCE7 /* ViewController.swift */,
-				17E2C7AC20C4B54A00D5BCE7 /* Main.storyboard */,
+				17E2C7DB20C4E43400D5BCE7 /* Actions.swift */,
+				17DBDFD420C88C7800058D70 /* Storyboards */,
+				17DBDFD320C88C5300058D70 /* ViewControllers */,
 				17E2C7B220C4B54D00D5BCE7 /* Assets.xcassets */,
-				17E2C7B420C4B54D00D5BCE7 /* LaunchScreen.storyboard */,
 				17E2C7B720C4B54D00D5BCE7 /* Info.plist */,
 				17E2C7AF20C4B54A00D5BCE7 /* TappySwipey.xcdatamodeld */,
-				17E2C7D920C4C05F00D5BCE7 /* BaseGameViewController.swift */,
-				17E2C7DB20C4E43400D5BCE7 /* Actions.swift */,
 			);
 			path = TappySwipey;
 			sourceTree = "<group>";
@@ -268,7 +281,6 @@
 			files = (
 				17E2C7DC20C4E43400D5BCE7 /* Actions.swift in Sources */,
 				17E2C7B120C4B54A00D5BCE7 /* TappySwipey.xcdatamodeld in Sources */,
-				17E2C7AB20C4B54A00D5BCE7 /* ViewController.swift in Sources */,
 				17E2C7A920C4B54A00D5BCE7 /* AppDelegate.swift in Sources */,
 				17E2C7DA20C4C05F00D5BCE7 /* BaseGameViewController.swift in Sources */,
 			);

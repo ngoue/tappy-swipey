@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		179FB55120C8C46D00664861 /* font-awesome-pro-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 179FB55020C8C46D00664861 /* font-awesome-pro-regular.otf */; };
+		179FB55320C8C55C00664861 /* font-awesome-pro-solid.otf in Resources */ = {isa = PBXBuildFile; fileRef = 179FB55220C8C55C00664861 /* font-awesome-pro-solid.otf */; };
 		17DBDFD620C88D0300058D70 /* TimedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DBDFD520C88D0300058D70 /* TimedGameViewController.swift */; };
 		17E2C7A920C4B54A00D5BCE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E2C7A820C4B54A00D5BCE7 /* AppDelegate.swift */; };
 		17E2C7AE20C4B54A00D5BCE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E2C7AC20C4B54A00D5BCE7 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		179FB55020C8C46D00664861 /* font-awesome-pro-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-awesome-pro-regular.otf"; sourceTree = "<group>"; };
+		179FB55220C8C55C00664861 /* font-awesome-pro-solid.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-awesome-pro-solid.otf"; sourceTree = "<group>"; };
 		17DBDFD520C88D0300058D70 /* TimedGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedGameViewController.swift; sourceTree = "<group>"; };
 		17E2C7A520C4B54A00D5BCE7 /* TappySwipey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TappySwipey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E2C7A820C4B54A00D5BCE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				17E2C7B220C4B54D00D5BCE7 /* Assets.xcassets */,
 				17E2C7B720C4B54D00D5BCE7 /* Info.plist */,
 				17E2C7AF20C4B54A00D5BCE7 /* TappySwipey.xcdatamodeld */,
+				179FB55020C8C46D00664861 /* font-awesome-pro-regular.otf */,
+				179FB55220C8C55C00664861 /* font-awesome-pro-solid.otf */,
 			);
 			path = TappySwipey;
 			sourceTree = "<group>";
@@ -256,8 +262,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				17E2C7B620C4B54D00D5BCE7 /* LaunchScreen.storyboard in Resources */,
-				17E2C7B320C4B54D00D5BCE7 /* Assets.xcassets in Resources */,
 				17E2C7AE20C4B54A00D5BCE7 /* Main.storyboard in Resources */,
+				17E2C7B320C4B54D00D5BCE7 /* Assets.xcassets in Resources */,
+				179FB55120C8C46D00664861 /* font-awesome-pro-regular.otf in Resources */,
+				179FB55320C8C55C00664861 /* font-awesome-pro-solid.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

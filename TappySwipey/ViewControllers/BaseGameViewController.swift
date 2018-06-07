@@ -10,8 +10,10 @@ import UIKit
 
 class BaseGameViewController: UIViewController {
     
+    @IBOutlet weak var touchesView: UIView!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
+    @IBOutlet weak var pauseButton: UIButton!
     
     var loading = true
     var paused = false
@@ -41,7 +43,7 @@ class BaseGameViewController: UIViewController {
         for action in Actions.all {
             action.delegate = self
             let gestureRecognizer = action.configureGestureRecognizer(delegate: self)
-            self.view.addGestureRecognizer(gestureRecognizer)
+            self.touchesView.addGestureRecognizer(gestureRecognizer)
             self.actionCounters[action.title] = 0
         }
     }
@@ -51,8 +53,7 @@ class BaseGameViewController: UIViewController {
      Allows subclasses to specify the top label text.
      */
     func updateTopLabel() {
-        self.topLabel.text = "[TOP LABEL]"
-        // fatalError("Subclasses must override ``BaseGameViewController.updateTopLabel``")
+         fatalError("Subclasses must override ``BaseGameViewController.updateTopLabel``")
     }
     
     /**
@@ -129,6 +130,7 @@ class BaseGameViewController: UIViewController {
     func end() {
         self.loading = true
         self.comboTimer?.invalidate()
+        self.navigationController?.popViewController(animated: true)
     }
     
     /**
@@ -156,7 +158,7 @@ class BaseGameViewController: UIViewController {
         // Add views
         actionView.addSubview(actionLabel)
         actionView.addSubview(pointsLabel)
-        self.view.addSubview(actionView)
+        self.view.insertSubview(actionView, belowSubview: self.touchesView)
         // Animate action view
         UIView.animate(
             withDuration: 2.0,
@@ -174,6 +176,35 @@ class BaseGameViewController: UIViewController {
             pointsLabel.removeFromSuperview()
             actionView.removeFromSuperview()
         }
+    }
+    
+    /**
+     Handle when a user pauses and unpauses the game
+     */
+    @IBAction func pauseButtonTapped(_ sender: Any) {
+        self.paused ? self.unpause() : self.pause()
+    }
+    
+    /**
+     Pause the game
+    */
+    func pause() {
+        self.paused = true
+        self.pauseButton.setTitle("play", for: .normal)
+        // Remove action labels from view
+        for view in self.view.subviews {
+            if view.tag == 1000 {
+                view.removeFromSuperview()
+            }
+        }
+    }
+    
+    /**
+     Resume the game
+     */
+    func unpause() {
+        self.paused = false
+        self.pauseButton.setTitle("pause", for: .normal)
     }
 }
 
@@ -200,7 +231,7 @@ extension BaseGameViewController: ActionDelegate {
      Called when an action is performed by the user.
      */
     func performAction(_ action: Action) {
-        if self.loading {
+        if self.loading || self.paused {
             return
         }
         print("Perform \(action.title)")

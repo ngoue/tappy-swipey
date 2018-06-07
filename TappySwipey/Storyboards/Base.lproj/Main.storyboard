@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="font-awesome-pro-solid.otf">
+            <string>FontAwesome5ProSolid</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -65,9 +70,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6d-bn-7qP" userLabel="Menu Button">
-                                <rect key="frame" x="317" y="36" width="39" height="30"/>
-                                <state key="normal" title="Menu"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6d-bn-7qP" userLabel="Menu Button">
+                                <rect key="frame" x="326" y="36" width="30" height="36"/>
+                                <fontDescription key="fontDescription" name="FontAwesome5ProSolid" family="Font Awesome 5 Pro" pointSize="20"/>
+                                <state key="normal" title="pause"/>
+                                <connections>
+                                    <action selector="pauseButtonTapped:" destination="dfu-CU-T5V" eventType="touchUpInside" id="EWB-eY-ndf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,457 pts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq8-AM-ErR" userLabel="Buttom Label">
                                 <rect key="frame" x="16" y="612" width="343" height="35"/>
@@ -75,22 +84,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHL-Yl-szk" userLabel="Touches View">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="S6d-bn-7qP" firstAttribute="top" secondItem="rkz-s3-zU2" secondAttribute="top" constant="16" id="30y-3v-1Vf"/>
                             <constraint firstItem="rkz-s3-zU2" firstAttribute="bottom" secondItem="Yq8-AM-ErR" secondAttribute="bottom" constant="20" id="72b-AT-RXN"/>
+                            <constraint firstItem="aHL-Yl-szk" firstAttribute="top" secondItem="w5Y-VY-fjP" secondAttribute="bottom" constant="8" id="FH3-0L-URr"/>
+                            <constraint firstItem="aHL-Yl-szk" firstAttribute="leading" secondItem="rkz-s3-zU2" secondAttribute="leading" id="FTg-Eq-D7b"/>
+                            <constraint firstItem="S6d-bn-7qP" firstAttribute="centerY" secondItem="w5Y-VY-fjP" secondAttribute="centerY" id="VSd-rF-znw"/>
                             <constraint firstItem="rkz-s3-zU2" firstAttribute="trailing" secondItem="S6d-bn-7qP" secondAttribute="trailing" constant="19" id="X2T-yL-scP"/>
+                            <constraint firstItem="aHL-Yl-szk" firstAttribute="bottom" secondItem="rkz-s3-zU2" secondAttribute="bottom" id="aTv-PJ-AFZ"/>
                             <constraint firstItem="Yq8-AM-ErR" firstAttribute="leading" secondItem="rkz-s3-zU2" secondAttribute="leading" constant="16" id="d59-C9-Mf3"/>
                             <constraint firstItem="rkz-s3-zU2" firstAttribute="trailing" secondItem="Yq8-AM-ErR" secondAttribute="trailing" constant="16" id="gV9-LH-zWj"/>
                             <constraint firstItem="w5Y-VY-fjP" firstAttribute="centerX" secondItem="FcQ-Eu-qKx" secondAttribute="centerX" id="iZ0-SZ-IlL"/>
                             <constraint firstItem="w5Y-VY-fjP" firstAttribute="top" secondItem="rkz-s3-zU2" secondAttribute="top" constant="16" id="kjG-HB-uce"/>
+                            <constraint firstItem="aHL-Yl-szk" firstAttribute="trailing" secondItem="rkz-s3-zU2" secondAttribute="trailing" id="vlk-eg-fxu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rkz-s3-zU2"/>
                     </view>
                     <connections>
                         <outlet property="bottomLabel" destination="Yq8-AM-ErR" id="fPS-ks-T2x"/>
+                        <outlet property="pauseButton" destination="S6d-bn-7qP" id="9gj-qv-wKx"/>
                         <outlet property="topLabel" destination="w5Y-VY-fjP" id="X2Q-k4-7Sm"/>
+                        <outlet property="touchesView" destination="aHL-Yl-szk" id="6tn-8r-6vy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTV-4d-Ed8" userLabel="First Responder" sceneMemberID="firstResponder"/>

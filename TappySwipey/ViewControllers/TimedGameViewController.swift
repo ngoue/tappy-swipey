@@ -11,8 +11,7 @@ import UIKit
 class TimedGameViewController: BaseGameViewController {
 
     var gameTimer: Timer?
-    var millisecondsLeft = 60_000
-    
+    var seconds = 60.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,27 +19,32 @@ class TimedGameViewController: BaseGameViewController {
     }
     
     override func updateTopLabel() {
-        self.topLabel.text = "\(Int(Double(self.millisecondsLeft)/1000.0))"
+        self.topLabel.text = "\(Int(ceil(seconds)))"
     }
     
     override func start() {
         super.start()
-        self.gameTimer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { (timer) in
-            if self.loading {
-                return
-            }
-            self.millisecondsLeft -= 1
-            self.updateTopLabel()
-            if self.millisecondsLeft <= 0 {
-                self.end()
-            }
-        }
+        self.startGameTimer()
     }
     
     override func end() {
-        self.loading = true
-        // TODO: move comboTimer to base controller??
-        self.comboTimer?.invalidate()
+        super.end()
         self.gameTimer?.invalidate()
+    }
+    
+    /**
+     Start the game timer.  Time is tracked in milliseconds for accuracy.
+     */
+    func startGameTimer() {
+        self.gameTimer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { (timer) in
+            if self.loading || self.paused {
+                return
+            }
+            self.seconds -= 0.001
+            self.updateTopLabel()
+            if self.seconds <= 0 {
+                self.end()
+            }
+        }
     }
 }

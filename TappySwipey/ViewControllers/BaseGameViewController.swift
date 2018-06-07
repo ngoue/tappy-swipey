@@ -20,7 +20,7 @@ class BaseGameViewController: UIViewController {
     var points = 0
     var pointValuesShouldDecrease = false
     var comboTimer: Timer?
-    var comboStack: [String] = []
+    var comboStack: [PerformedAction] = []
     var shouldResetComboStack = false
     var actionCounters: [String: Int] = [:]
     
@@ -44,7 +44,6 @@ class BaseGameViewController: UIViewController {
             action.delegate = self
             let gestureRecognizer = action.configureGestureRecognizer(delegate: self)
             self.touchesView.addGestureRecognizer(gestureRecognizer)
-            self.actionCounters[action.title] = 0
         }
     }
     
@@ -93,8 +92,8 @@ class BaseGameViewController: UIViewController {
      Additionally, set ``shouldResetComboStack`` to ``false`` so the combo
      timer resets.
      */
-    func addActionToComboStack(_ action: Action) {
-        self.comboStack.append(action.title)
+    func addActionToComboStack(_ action: PerformedAction) {
+        self.comboStack.append(action)
         self.shouldResetComboStack = false
     }
     
@@ -234,17 +233,20 @@ extension BaseGameViewController: ActionDelegate {
         if self.loading || self.paused {
             return
         }
-        print("Perform \(action.title)")
-        self.addActionToComboStack(action)
+        let performedAction = PerformedAction(action, for: UIDevice.current.orientation)
+        self.addActionToComboStack(performedAction)
         if self.checkForCombo() {
             return
         }
-        self.actionCounters[action.title]! += 1
+        if self.actionCounters[performedAction.description] == nil {
+            self.actionCounters[performedAction.description] = 0
+        }
+        self.actionCounters[performedAction.description]! += 1
         let points = self.pointValuesShouldDecrease ?
-            action.value / self.actionCounters[action.title]! :
+            action.value / self.actionCounters[performedAction.description]! :
             action.value
         self.addPoints(points)
-        self.showActionLabel(text: action.title, value: points)
+        self.showActionLabel(text: performedAction.description, value: points)
     }
 }
 

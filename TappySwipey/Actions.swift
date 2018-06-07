@@ -87,6 +87,37 @@ class SwipeAction: Action {
 
 
 /**
+ Performed Action class represents actions performed by the user
+ */
+class PerformedAction: CustomStringConvertible {
+    let action: Action
+    let orientation: UIDeviceOrientation
+    var value: Int {
+        return self.action.value
+    }
+    var description: String {
+        var orientationString = ""
+        switch orientation {
+        case .landscapeLeft:
+            orientationString = " Landscape Left"
+        case .landscapeRight:
+            orientationString = " Landscape Right"
+        case .portraitUpsideDown:
+            orientationString = " Upside Down"
+        default:
+            break
+        }
+        return "\(self.action.title)\(orientationString)"
+    }
+    
+    init(_ action: Action, for orientation: UIDeviceOrientation) {
+        self.action = action
+        self.orientation = orientation
+    }
+}
+
+
+/**
  Actions
  
  The Actions enum is a means of namespacing and defining all possible user

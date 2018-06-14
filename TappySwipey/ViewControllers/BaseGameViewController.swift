@@ -14,6 +14,7 @@ class BaseGameViewController: UIViewController {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var pauseMenu: UIView!
     
     var loading = true
     var paused = false
@@ -128,7 +129,8 @@ class BaseGameViewController: UIViewController {
      */
     func end() {
         self.loading = true
-        self.comboTimer?.invalidate()
+        self.cleanup()
+        // TODO: show high score screen - for now pop back to main menu
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -189,6 +191,7 @@ class BaseGameViewController: UIViewController {
     */
     func pause() {
         self.paused = true
+        self.pauseMenu.isHidden = false
         self.pauseButton.setTitle("play", for: .normal)
         // Remove action labels from view
         for view in self.view.subviews {
@@ -203,7 +206,23 @@ class BaseGameViewController: UIViewController {
      */
     func unpause() {
         self.paused = false
+        self.pauseMenu.isHidden = true
         self.pauseButton.setTitle("pause", for: .normal)
+    }
+    
+    /**
+     Perform any cleanup necessary before exiting
+     */
+    func cleanup() {
+        self.comboTimer?.invalidate()
+    }
+    
+    /**
+     Quit the game
+     */
+    @IBAction func quit(_ sender: Any) {
+        self.cleanup()
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

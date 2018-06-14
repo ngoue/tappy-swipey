@@ -27,8 +27,8 @@ class TimedGameViewController: BaseGameViewController {
         self.startGameTimer()
     }
     
-    override func end() {
-        super.end()
+    override func cleanup() {
+        super.cleanup()
         self.gameTimer?.invalidate()
     }
     

@@ -115,6 +115,67 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHL-Yl-szk" userLabel="Touches View">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHx-NN-fe0" userLabel="Pause Menu">
+                                <rect key="frame" x="16" y="250" width="343" height="168"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6U-Ak-tKj">
+                                        <rect key="frame" x="119.5" y="0.0" width="104" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="APS-FU-xae"/>
+                                            <constraint firstAttribute="height" constant="36" id="Wgn-B1-6YA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gC5-lb-aQH" userLabel="Resume Button">
+                                        <rect key="frame" x="136" y="44" width="71" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="71" id="bAY-qf-d9x"/>
+                                            <constraint firstAttribute="height" constant="36" id="gg7-Vw-ZIh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Resume"/>
+                                        <connections>
+                                            <action selector="pauseButtonTapped:" destination="dfu-CU-T5V" eventType="touchUpInside" id="fy2-TW-m7f"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbt-Iq-9Rq" userLabel="Settings Button">
+                                        <rect key="frame" x="135.5" y="88" width="72" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="We7-vK-Y9a"/>
+                                            <constraint firstAttribute="width" constant="72" id="ibU-1z-2cJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Settings"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hx8-1v-zon" userLabel="Quit Button">
+                                        <rect key="frame" x="153" y="132" width="37" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="37" id="Cde-d7-jSn"/>
+                                            <constraint firstAttribute="height" constant="36" id="sy4-ke-P44"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Quit"/>
+                                        <connections>
+                                            <action selector="quit:" destination="dfu-CU-T5V" eventType="touchUpInside" id="1QI-bs-G44"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="168" id="1ui-qI-pEP"/>
+                                    <constraint firstItem="tbt-Iq-9Rq" firstAttribute="top" secondItem="gC5-lb-aQH" secondAttribute="bottom" constant="8" id="5xJ-cP-PHL"/>
+                                    <constraint firstItem="Hx8-1v-zon" firstAttribute="top" secondItem="tbt-Iq-9Rq" secondAttribute="bottom" constant="8" id="7Su-bk-BpN"/>
+                                    <constraint firstItem="gC5-lb-aQH" firstAttribute="top" secondItem="c6U-Ak-tKj" secondAttribute="bottom" constant="8" id="F1d-AM-NUd"/>
+                                    <constraint firstItem="Hx8-1v-zon" firstAttribute="centerX" secondItem="OHx-NN-fe0" secondAttribute="centerX" id="Rg6-Xh-F6N"/>
+                                    <constraint firstItem="gC5-lb-aQH" firstAttribute="centerX" secondItem="OHx-NN-fe0" secondAttribute="centerX" id="chr-u0-7kz"/>
+                                    <constraint firstItem="tbt-Iq-9Rq" firstAttribute="centerX" secondItem="OHx-NN-fe0" secondAttribute="centerX" id="kQn-xs-Rtv"/>
+                                    <constraint firstItem="c6U-Ak-tKj" firstAttribute="top" secondItem="OHx-NN-fe0" secondAttribute="top" id="rYT-Ve-jp5"/>
+                                    <constraint firstItem="c6U-Ak-tKj" firstAttribute="centerX" secondItem="OHx-NN-fe0" secondAttribute="centerX" id="roR-eR-3zC"/>
+                                    <constraint firstAttribute="height" constant="168" id="uOY-cw-QrR"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -122,13 +183,17 @@
                             <constraint firstItem="rkz-s3-zU2" firstAttribute="bottom" secondItem="Yq8-AM-ErR" secondAttribute="bottom" constant="20" id="72b-AT-RXN"/>
                             <constraint firstItem="aHL-Yl-szk" firstAttribute="top" secondItem="w5Y-VY-fjP" secondAttribute="bottom" constant="8" id="FH3-0L-URr"/>
                             <constraint firstItem="aHL-Yl-szk" firstAttribute="leading" secondItem="rkz-s3-zU2" secondAttribute="leading" id="FTg-Eq-D7b"/>
+                            <constraint firstItem="OHx-NN-fe0" firstAttribute="centerY" secondItem="FcQ-Eu-qKx" secondAttribute="centerY" id="PAw-CS-CzH"/>
+                            <constraint firstItem="rkz-s3-zU2" firstAttribute="trailing" secondItem="OHx-NN-fe0" secondAttribute="trailing" constant="16" id="QfK-KA-hCt"/>
                             <constraint firstItem="S6d-bn-7qP" firstAttribute="centerY" secondItem="w5Y-VY-fjP" secondAttribute="centerY" id="VSd-rF-znw"/>
                             <constraint firstItem="rkz-s3-zU2" firstAttribute="trailing" secondItem="S6d-bn-7qP" secondAttribute="trailing" constant="19" id="X2T-yL-scP"/>
                             <constraint firstItem="aHL-Yl-szk" firstAttribute="bottom" secondItem="rkz-s3-zU2" secondAttribute="bottom" id="aTv-PJ-AFZ"/>
+                            <constraint firstItem="OHx-NN-fe0" firstAttribute="leading" secondItem="rkz-s3-zU2" secondAttribute="leading" constant="16" id="czJ-4e-xVp"/>
                             <constraint firstItem="Yq8-AM-ErR" firstAttribute="leading" secondItem="rkz-s3-zU2" secondAttribute="leading" constant="16" id="d59-C9-Mf3"/>
                             <constraint firstItem="rkz-s3-zU2" firstAttribute="trailing" secondItem="Yq8-AM-ErR" secondAttribute="trailing" constant="16" id="gV9-LH-zWj"/>
                             <constraint firstItem="w5Y-VY-fjP" firstAttribute="centerX" secondItem="FcQ-Eu-qKx" secondAttribute="centerX" id="iZ0-SZ-IlL"/>
                             <constraint firstItem="w5Y-VY-fjP" firstAttribute="top" secondItem="rkz-s3-zU2" secondAttribute="top" constant="16" id="kjG-HB-uce"/>
+                            <constraint firstItem="OHx-NN-fe0" firstAttribute="centerX" secondItem="FcQ-Eu-qKx" secondAttribute="centerX" id="sif-V1-3a1"/>
                             <constraint firstItem="aHL-Yl-szk" firstAttribute="trailing" secondItem="rkz-s3-zU2" secondAttribute="trailing" id="vlk-eg-fxu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rkz-s3-zU2"/>
@@ -136,6 +201,7 @@
                     <connections>
                         <outlet property="bottomLabel" destination="Yq8-AM-ErR" id="fPS-ks-T2x"/>
                         <outlet property="pauseButton" destination="S6d-bn-7qP" id="9gj-qv-wKx"/>
+                        <outlet property="pauseMenu" destination="OHx-NN-fe0" id="G0X-Md-xbA"/>
                         <outlet property="topLabel" destination="w5Y-VY-fjP" id="X2Q-k4-7Sm"/>
                         <outlet property="touchesView" destination="aHL-Yl-szk" id="6tn-8r-6vy"/>
                     </connections>
@@ -192,6 +258,66 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44b-jB-rAY" userLabel="Touches View">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21J-TV-Y7b" userLabel="Pause Menu">
+                                <rect key="frame" x="16" y="250" width="343" height="168"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgE-Qm-Bxc">
+                                        <rect key="frame" x="119" y="0.0" width="104" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="4Ha-bI-CgI"/>
+                                            <constraint firstAttribute="height" constant="36" id="gIa-9A-Sa5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJA-i7-Cvy" userLabel="Resume Button">
+                                        <rect key="frame" x="136" y="44" width="71" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="71" id="KL7-t4-1PG"/>
+                                            <constraint firstAttribute="height" constant="36" id="pYS-ok-4n0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Resume"/>
+                                        <connections>
+                                            <action selector="pauseButtonTapped:" destination="SHR-bM-ejc" eventType="touchUpInside" id="3ej-ur-HnQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIl-9C-6es" userLabel="Settings Button">
+                                        <rect key="frame" x="135.5" y="88" width="72" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="72" id="eDL-uS-dmc"/>
+                                            <constraint firstAttribute="height" constant="36" id="fpW-f7-wvH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Settings"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tt9-88-p5v" userLabel="Quit Button">
+                                        <rect key="frame" x="153" y="132" width="37" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="37" id="MVM-nJ-5UX"/>
+                                            <constraint firstAttribute="height" constant="36" id="bva-XM-mo9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Quit"/>
+                                        <connections>
+                                            <action selector="quit:" destination="SHR-bM-ejc" eventType="touchUpInside" id="FOy-62-NDw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="JJA-i7-Cvy" firstAttribute="centerX" secondItem="21J-TV-Y7b" secondAttribute="centerX" id="4qQ-wQ-gdz"/>
+                                    <constraint firstAttribute="height" constant="168" id="4r6-dZ-hhe"/>
+                                    <constraint firstItem="XIl-9C-6es" firstAttribute="centerX" secondItem="21J-TV-Y7b" secondAttribute="centerX" id="ACR-Tn-dhI"/>
+                                    <constraint firstItem="xgE-Qm-Bxc" firstAttribute="centerX" secondItem="21J-TV-Y7b" secondAttribute="centerX" id="B0K-Sb-pkE"/>
+                                    <constraint firstItem="XIl-9C-6es" firstAttribute="top" secondItem="JJA-i7-Cvy" secondAttribute="bottom" constant="8" id="NQb-qg-eg0"/>
+                                    <constraint firstItem="JJA-i7-Cvy" firstAttribute="top" secondItem="xgE-Qm-Bxc" secondAttribute="bottom" constant="8" id="Qtl-Fj-3pc"/>
+                                    <constraint firstItem="Tt9-88-p5v" firstAttribute="centerX" secondItem="21J-TV-Y7b" secondAttribute="centerX" id="Y1A-xo-7GU"/>
+                                    <constraint firstItem="xgE-Qm-Bxc" firstAttribute="top" secondItem="21J-TV-Y7b" secondAttribute="top" id="afZ-nf-b73"/>
+                                    <constraint firstItem="Tt9-88-p5v" firstAttribute="top" secondItem="XIl-9C-6es" secondAttribute="bottom" constant="8" id="bBQ-S5-v4R"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -200,26 +326,31 @@
                             <constraint firstItem="p58-nH-9LD" firstAttribute="top" secondItem="9gE-lQ-DYd" secondAttribute="top" constant="16" id="4rh-VF-q3A"/>
                             <constraint firstItem="orj-Uz-cos" firstAttribute="centerX" secondItem="4IY-lO-wTc" secondAttribute="centerX" id="4yC-9T-Bdk"/>
                             <constraint firstItem="44b-jB-rAY" firstAttribute="bottom" secondItem="9gE-lQ-DYd" secondAttribute="bottom" id="6Vv-Ua-Kxt"/>
+                            <constraint firstItem="9gE-lQ-DYd" firstAttribute="trailing" secondItem="21J-TV-Y7b" secondAttribute="trailing" constant="16" id="Mpz-Lj-HSK"/>
                             <constraint firstItem="orj-Uz-cos" firstAttribute="top" secondItem="9gE-lQ-DYd" secondAttribute="top" constant="16" id="NGg-4X-QIX"/>
                             <constraint firstItem="9gE-lQ-DYd" firstAttribute="bottom" secondItem="hkL-73-BBJ" secondAttribute="bottom" constant="20" id="dqg-kk-8OD"/>
                             <constraint firstItem="p58-nH-9LD" firstAttribute="centerY" secondItem="orj-Uz-cos" secondAttribute="centerY" id="f3f-xs-tYp"/>
                             <constraint firstItem="hkL-73-BBJ" firstAttribute="leading" secondItem="9gE-lQ-DYd" secondAttribute="leading" constant="16" id="gr9-lk-U5j"/>
+                            <constraint firstItem="21J-TV-Y7b" firstAttribute="centerY" secondItem="4IY-lO-wTc" secondAttribute="centerY" id="hQy-Y9-Gue"/>
+                            <constraint firstItem="21J-TV-Y7b" firstAttribute="leading" secondItem="9gE-lQ-DYd" secondAttribute="leading" constant="16" id="jgo-Mh-EDO"/>
                             <constraint firstItem="44b-jB-rAY" firstAttribute="leading" secondItem="9gE-lQ-DYd" secondAttribute="leading" id="mL9-7B-KMW"/>
                             <constraint firstItem="9gE-lQ-DYd" firstAttribute="trailing" secondItem="hkL-73-BBJ" secondAttribute="trailing" constant="16" id="piw-WT-Ph2"/>
                             <constraint firstItem="44b-jB-rAY" firstAttribute="trailing" secondItem="9gE-lQ-DYd" secondAttribute="trailing" id="uE2-ln-c21"/>
+                            <constraint firstItem="21J-TV-Y7b" firstAttribute="centerX" secondItem="4IY-lO-wTc" secondAttribute="centerX" id="xig-qq-SQA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9gE-lQ-DYd"/>
                     </view>
                     <connections>
                         <outlet property="bottomLabel" destination="hkL-73-BBJ" id="Ewe-ss-Zad"/>
                         <outlet property="pauseButton" destination="p58-nH-9LD" id="PTf-zo-A7i"/>
+                        <outlet property="pauseMenu" destination="21J-TV-Y7b" id="cv2-mR-37R"/>
                         <outlet property="topLabel" destination="orj-Uz-cos" id="GWq-XO-19y"/>
                         <outlet property="touchesView" destination="44b-jB-rAY" id="nOu-WG-uc8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Xn-bN-X5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="-577"/>
+            <point key="canvasLocation" x="1864.8" y="-577.06146926536735"/>
         </scene>
     </scenes>
 </document>
